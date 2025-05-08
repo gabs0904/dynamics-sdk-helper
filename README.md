@@ -3,7 +3,7 @@
 A Visual Studio Code extension that provides code snippets for common Microsoft Dynamics 365 Web API operations.
 ---
 
-## ✨ Snippet Examples
+## Snippet Examples
 
 Type any of the following in a `.js` or `.ts` file and select the snippet from IntelliSense:
 
@@ -20,7 +20,7 @@ Type any of the following in a `.js` or `.ts` file and select the snippet from I
 
 ---
 
-## 📦 Installation (Dev Mode)
+## Installation (Dev Mode)
 
 To test this extension locally:
 
@@ -32,7 +32,7 @@ To test this extension locally:
 
 ---
 
-## 🛠️ Requirements
+## Requirements
 
 - Visual Studio Code
 - JavaScript or TypeScript files for snippet activation

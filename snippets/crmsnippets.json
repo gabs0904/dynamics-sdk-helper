@@ -1,0 +1,132 @@
+{
+    "Create Record": {
+        "prefix": "crm-create",
+        "body": [
+            "Xrm.WebApi.createRecord(\"${1:entityName}\", {",
+            "  ${2:fieldName}: \"${3:value}\"",
+            "}).then(function success(result) {",
+            "  console.log(\"Record created with ID: \" + result.id);",
+            "}, function(error) {",
+            "  console.log(error.message);",
+            "});"
+        ],
+        "description": "Create a new record in Dynamics CRM"
+    },
+    "Update Record": {
+        "prefix": "crm-update",
+        "body": [
+            "Xrm.WebApi.updateRecord(\"${1:entityName}\", \"${2:recordId}\", {",
+            "  ${3:fieldName}: \"${4:value}\"",
+            "}).then(function success(result) {",
+            "  console.log(\"Record updated successfully\");",
+            "}, function(error) {",
+            "  console.log(error.message);",
+            "});"
+        ],
+        "description": "Update an existing record in Dynamics CRM"
+    },
+    "Delete Record": {
+        "prefix": "crm-delete",
+        "body": [
+            "Xrm.WebApi.deleteRecord(\"${1:entityName}\", \"${2:recordId}\").then(function success(result) {",
+            "  console.log(\"Record deleted successfully\");",
+            "}, function(error) {",
+            "  console.log(error.message);",
+            "});"
+        ],
+        "description": "Delete a record in Dynamics CRM"
+    },
+    "Retrieve Single Record": {
+        "prefix": "crm-retrieve-single",
+        "body": [
+            "Xrm.WebApi.retrieveRecord(\"${1:entityName}\", \"${2:recordId}\", \"?$select=${3:fieldNames}\").then(function success(result) {",
+            "  console.log(result.${4:fieldName});",
+            "}, function(error) {",
+            "  console.log(error.message);",
+            "});"
+        ],
+        "description": "Retrieve a single record from Dynamics CRM"
+    },
+    "Retrieve Multiple Records": {
+        "prefix": "crm-retrieve-multiple",
+        "body": [
+            "Xrm.WebApi.retrieveMultipleRecords(\"${1:entityName}\", \"?$select=${2:fieldNames}&$filter=${3:filter}\").then(function success(result) {",
+            "  console.log(result.entities);",
+            "}, function(error) {",
+            "  console.log(error.message);",
+            "});"
+        ],
+        "description": "Retrieve multiple records from Dynamics CRM"
+    },
+    "Execute Action": {
+        "prefix": "crm-action",
+        "body": [
+            "Xrm.WebApi.executeAction(\"${1:actionName}\", {",
+            "  ${2:parameterName}: \"${3:value}\"",
+            "}).then(function success(result) {",
+            "  console.log(\"Action executed successfully\");",
+            "}, function(error) {",
+            "  console.log(error.message);",
+            "});"
+        ],
+        "description": "Execute a custom action in Dynamics CRM"
+    },
+    "Form Context": {
+        "prefix": "crm-form-context",
+        "body": [
+            "var formContext = executionContext.getFormContext();",
+            "var attributeValue = formContext.getAttribute(\"${1:attributeName}\").getValue();",
+            "formContext.getAttribute(\"${2:attributeName}\").setValue(${3:newValue});"
+        ],
+        "description": "Access the form context in Dynamics CRM"
+    },
+    "Grid Context": {
+        "prefix": "crm-grid-context",
+        "body": [
+            "var gridContext = executionContext.getFormContext().getControl(\"${1:gridName}\");",
+            "var selectedRows = gridContext.getGrid().getSelectedRows();",
+            "selectedRows.forEach(function (row) {",
+            "  var rowData = row.getData();",
+            "  console.log(rowData);",
+            "});"
+        ],
+        "description": "Access the grid context in Dynamics CRM"
+    },
+    "Access Field By Name": {
+        "prefix": "crm-access-field-name",
+        "body": [
+            "var myAttribute = Xrm.Page.getAttribute(\"name\");"
+        ],
+        "description": "Access Field By Name in Dynamics CRM"
+    },
+    "Access Field By Control": {
+        "prefix": "crm-access-field-control",
+        "body": [
+            "var myControl = Xrm.Page.getControl(\"name\");"
+        ],
+        "description": "Access Field By Control in Dynamics CRM"
+    },
+
+    "Access Lookup Field": {
+        "prefix": "crm-access-lookup-field",
+        "body": [
+            "var lookupField = formContext.getAttribute(\"${1:lookupFieldName}\").getValue();",
+            "if (lookupField != null) {",
+            "  var lookupId = lookupField[0].id;",
+            "  var lookupName = lookupField[0].name;",
+            "}"
+        ],
+        "description": "Access Lookup Field in Dynamics CRM"
+    },
+    "Access Option Set Field": {
+        "prefix": "crm-access-option-set-field",
+        "body": [
+            "var optionSetField = formContext.getAttribute(\"${1:optionSetFieldName}\").getValue();",
+            "if (optionSetField != null) {",
+            "  var optionSetValue = optionSetField;",
+            "}"
+        ],
+        "description": "Access Option Set Field in Dynamics CRM"
+    }
+
+}
